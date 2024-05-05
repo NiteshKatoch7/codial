@@ -1,0 +1,17 @@
+@import './settings.scss';
+@import './mixins.scss';
+
+@import "./components/header";
+@import "./components/form";
+@import './components/list.scss';
+@import './components/chat.scss';
+@import "./components/userProfile";
+
+body{
+    margin: 0;
+    text-align: center;
+    position: relative;
+    background-color: $primary-color-bg;
+    overflow-x: hidden;
+    background-color: $primary-color-bg;
+}

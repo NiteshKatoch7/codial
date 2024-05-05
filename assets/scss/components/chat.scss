@@ -1,0 +1,139 @@
+.chat-container{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    background-color: #fff;
+    padding: 0px;
+    border-radius: 8px;
+    width: 325px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: none;
+    z-index: 9;
+    transition: all 0.6s ease-in-out;
+}
+
+.chat-container .chat-window{
+    min-height: 300px;
+    max-height: 300px;
+    overflow: auto;
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chat-container .chat-header{
+    position: relative;
+}
+
+.chat-container .chat-header .close-chat-btn{
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.chat-container .chat-window .chat{
+    width: auto;
+    max-width: 90%;
+    min-width: 120px;
+    position: relative;
+    padding: 12px 8px 24px 8px;
+    background-color: #41729F;
+    font-weight: 600;
+    list-style-type: none;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+.chat-container .chat-window .chat .info{
+    font-size: 10px;
+    font-weight: 400;
+    position: absolute;
+    bottom: 5px;
+    margin-bottom: 0;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: normal;
+}
+
+.chat-container .chat-window .chat.right-chat .info{
+    right: 8px;
+}
+
+.chat-container .chat-window .left-chat{
+    text-align: left;
+    border-radius: 0 8px 8px 0;
+    background-color: $primary-color;
+    color: $white;
+}
+
+.chat-container .chat-window .right-chat{
+    text-align: right;
+    border-radius: 8px 0 0 8px;
+    align-self: self-end;
+    background-color: $primary-color-lightest;
+    color: $primary-color;
+}
+
+.chat-container .chat-header{
+    background-color: $primary-color;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px 8px 0 0;
+}
+
+.chat-container .chat-header h4{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.chat-container .chat-footer input[type=submit]{
+    width: 20%;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 0 0 8px 0; 
+    border: 0;
+    background-color: $primary-color;
+    color: #fff;
+}
+
+.chat-container .chat-footer input[type=text]{
+    width: 80%;
+    padding: 8px 12px;
+    font-size: 14px;
+    resize: none;
+    border-radius: 0 0 0 8px;
+    border: 1px solid $primary-color-bg;
+}
+
+.chat-container .chat-footer input[type=text]:focus{
+    outline: none;
+}
+
+.chat-room-btn{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: $primary-color;
+    bottom: 5%;
+    right: 5%;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    cursor: pointer;
+    z-index: 1;
+}  
+
+.chat-room-btn svg{
+    color: #fff;
+    font-size: 28px;
+}

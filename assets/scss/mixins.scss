@@ -1,0 +1,13 @@
+@mixin action-btn($color){
+    padding: 10px 16px;
+    background: $color;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    line-height: normal;
+    display: inline-flex;
+    align-items: center;
+    gap: 0 4px;
+    vertical-align: middle;
+}

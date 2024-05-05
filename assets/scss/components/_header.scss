@@ -1,0 +1,21 @@
+.navbar{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    .navbar-brand{
+        font-size: 24px;
+        font-weight: 700;
+        color: $primary-color;
+    }
+
+    .logout-btn{
+        border: 0;
+        font-size: 24px;
+        font-weight: 700;
+        color: $primary-color;
+        cursor: pointer;
+    }
+}
+
+.footer-section{
+    position: fixed;
+    bottom: 0;
+}

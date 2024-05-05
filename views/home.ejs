@@ -1,0 +1,107 @@
+<!-- <h1>
+    Codeial / <%= title %>
+</h1> -->
+
+<div class="container-wrapper mt-4">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="left-section">
+                <section class="users-corner list-section" id="users">
+                    <div class="list-header">
+                        <h4>Users</h4>
+                    </div>
+                    <ul  class="list-wrapper">
+                        <% for(u of all_users) { %>
+                            <li>
+                                <div class="actions-buttons">
+                                    <h4 class="mb-0"><%= u.name %></h4>
+                                    <a class="view-details" href="/users/profile/<%= u._id %>">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        <% } %>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <section class="main-section" id="feed-posts">
+                <% if(locals.user){ %>
+                <form action="/posts/create" id="new-post-form" method="POST">
+                    <textarea name="content" id="new-post-content" cols="30" rows="3" placeholder="Type in..." required></textarea>
+                    <input type="submit" value="Post">
+                </form>
+                <% } %>
+            
+                <div id="post-list-container">
+                    <ul>
+                        <% for(post of posts){ %>
+            
+                            <%- include('_post') -%>
+            
+                        <%} %>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="col-sm-4">
+            <div class="right-section">
+                <section class="friends-corner list-section" id="user-friends">
+                    <div class="list-header">
+                        <h4>Friends</h4>
+                    </div>
+                    <ul id="friends-container" class="list-wrapper">
+                        <% if(friends.length !== 0){ %>
+                            <% for(f of friends) { %>
+                                <li id="friend-<%= f.to_user._id %>">
+                                    <h4><%= f.to_user.name %></h4>
+                                    <div class="actions-buttons">
+                                        <a class="view-details" href="/users/profile/<%= f.to_user._id %>">
+                                            <i class="fa-solid fa-circle-info"></i>&nbsp;View Details
+                                        </a>
+                                        <a class="friend-chat-btn" data-friend-id="<%= f.to_user._id %>" data-friend-name="<%= f.to_user.name %>" href="javascript:"><i class="fa-solid fa-comments"></i>&nbsp;Chat</a>
+                                        <a class="add-friend" data-id="<%= f.to_user._id %>" href="javascript:"><i class="fa-solid fa-eraser"></i>&nbsp;Remove</a>
+                                    </div>
+                                </li>
+                            <% } %>
+                        <% }else{ %>
+                            <li>No Friends in the list</li>
+                        <% } %>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+    <%- include('chat'); %>
+    <!-- Chatbot -->
+    <div class="chat-room-btn" id="join-chat-room">
+        <i class="fa fa-solid fa-message"></i>
+    </div>
+</div>
+
+<script src="/js/home.js"></script>
+<script src="/js/toggle_likes.js"></script>
+<script src="/js/friendship.js"></script>
+<!-- Chat Engine JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js" integrity="sha512-luMnTJZ7oEchNDZAtQhgjomP1eZefnl82ruTH/3Oj/Yu5qYtwL7+dVRccACS/Snp1lFXq188XFipHKYE75IaQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user){ %>
+    <script>
+        // Intiate Chatting Engine
+        new ChatEngine('user-chat-box', '<%= locals.user.email%>');
+        //Trigger Chatting Engine
+        $('#join-chat-room').click(function(e){
+            $('#user-chat-box').css('display', 'block');
+        });
+        $('#close-chat-room').click(function(e){
+            $('#user-chat-box').css('display', 'none');
+        })
+    </script>
+<% } %>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    })
+</script>

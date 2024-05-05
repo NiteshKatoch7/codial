@@ -1,0 +1,56 @@
+form{
+    max-width: 90%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px 0;
+    
+    input{
+        padding: 10px 16px;
+        min-width: 350px;
+        border: 0;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        color: $grey-text;
+        font-size: 16px;
+        font-weight: 400;
+
+        &::placeholder{
+            color: $grey-text;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    input[type=submit]{
+        background-color: $primary-color;
+        font-size: 16px;
+        font-weight: 500;
+        color: $white;
+    }
+
+    input[type=file]{
+        background-color: $primary-color;
+        color: $white;
+        display: none;
+    }
+
+    a{
+        display: block;
+        background-color: $primary-color;
+        font-size: 16px;
+        font-weight: 500;
+        color: $white !important;
+        padding: 10px 16px;
+        min-width: 350px;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

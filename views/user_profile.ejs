@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/css/user_profile.css">
+
+<div class="user-profile">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <h3 class="col-12">
+                Welcome, <%= profile_user.name %>
+            </h3>
+            <div class="col-12">
+                <div class="d-flex align-items-center justify-content-center mt-5">
+                    <div class="profile-pic">
+                        <img id="profile-picture" src="<%= profile_user.avatar ? profile_user.avatar : '/images/avatar.jpg' %>" alt="<%= user.name %>" width="100">
+                        <% if(locals.user.id == profile_user.id){ %>
+                            <button id="delete-profile-pic"><i class="fa-solid fa-trash"></i></button>
+                        <% }else{ %>
+                            <% if(friends){ %>
+                                <a class="add-friend" data-id="<%= profile_user.id %>" href="javascript:">Remove Friend</a>
+                            <% }else{ %>
+                                <a class="add-friend" data-id="<%= profile_user.id %>" href="javascript:">Add Friend</a>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <% if(locals.user.id == profile_user.id){ %>
+                
+                    <form class="form-full mt-4" action="/users/profile/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
+                        <label for="avatar-upload">
+                            <span class="mb-3 text-primary" id="selected-name"></span>
+                            <a><i class="fa-solid fa-upload"></i>&nbsp; Upload Profile Image</a>
+                            <input id="avatar-upload" type="file" name="avatar" placeholder="profile-picture" />
+                        </label>
+                        <input type="text" name="name" value="<%= profile_user.name %>" placeholder="Your Name" required>
+                        <input type="email" name="email" value="<%= profile_user.email %>" placeholder="Your Email" required>
+                        <!-- <input type="text" name="password" placeholder="New Password">
+                        <input type="text" name="confirm-password" placeholder="Confirm Password"> -->
+                        <input type="submit" value="Edit User Info">
+                    </form>
+                
+                <% }else{ %>
+                
+                    <p><%= profile_user.name %></p>
+                    <p><%= profile_user.email %></p>
+                
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/profile.js"></script>
+<script src="/js/friendship.js"></script>

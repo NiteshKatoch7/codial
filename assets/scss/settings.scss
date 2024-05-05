@@ -1,0 +1,17 @@
+$white: #fff;
+$danger: #ED4C5C;
+$primary-color: #6054BA;
+$primary-color-bg: #E9ECFF;
+
+$border: #ededed;
+
+$secondary-text: #232323;
+$grey-text: #969BA0;
+
+$primary-color-lightest: #F5F7FF;
+
+
+//Bootstrap Overwrite
+.text-primary{
+    color: $primary-color !important;
+}

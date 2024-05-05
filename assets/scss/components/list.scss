@@ -1,0 +1,91 @@
+.list-section{
+    height: 100%;
+    position: relative;
+    text-align: left;
+    padding: 5px 20px;
+    background-color: $white;
+    border-radius: 12px 0 0 12px;
+    padding: 20px 40px;
+    overflow: auto;
+    // margin-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    align-self: center;
+
+    &::-webkit-scrollbar{
+      width: 4px;
+    }
+  
+    &::-webkit-scrollbar-track{
+      width: 4px;
+      background-color: $white;
+      border-radius: 8px;
+    }
+  
+    &::-webkit-scrollbar-thumb{
+      width: 4px;
+      background-color: $primary-color;
+      border-radius: 8px;
+    }
+
+    &.users-corner{
+        border-radius: 0 12px 12px 0;
+    }
+
+    .list-header{
+        //position: fixed;
+        top: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .list-wrapper{
+        list-style-type: none;
+        padding: 0;
+        //margin-top: 10px;
+
+        li{
+            padding: 20px 0;
+            border-bottom: 1px solid $border;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            gap: 0 10px;
+
+            h4{
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 12px;
+            }
+
+            .actions-buttons{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            a{
+                text-decoration: none;
+                color: $secondary-text;
+                font-size: 18px;
+
+                &.view-details{
+                    @include action-btn($primary-color-bg);
+                    color: $primary-color
+                }
+
+                &.friend-chat-btn{
+                    @include action-btn($primary-color);
+                }
+
+                &.add-friend{
+                    @include action-btn($danger);
+                }
+            }
+        }
+    }
+}
