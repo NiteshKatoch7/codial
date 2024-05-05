@@ -12,6 +12,8 @@ const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const customMiddleware = require('./config/middleware');
+const dotenv = require('dotenv')
+dotenv.config();
 
 //Enable cors on my server
 const cors = require('cors');
