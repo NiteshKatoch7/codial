@@ -12,8 +12,12 @@ const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const customMiddleware = require('./config/middleware');
-const dotenv = require('dotenv')
-dotenv.config();
+const dotenv = require('dotenv').config();
+const path = require('path');
+const logger = require('morgan');
+
+// Importing the env file
+const env = require('./config/environment');
 
 //Enable cors on my server
 const cors = require('cors');
@@ -25,10 +29,13 @@ const chatSocket = require('./config/chat_sockets').chatSockets(chatserver);
 chatserver.listen(5000);
 console.log('chat server is listening on port 5000');
 
-app.use(express.static('./assets'));
+app.use(express.static(path.join(__dirname, env.asset_path)));
 
 // Make the uploads path available to browser
 app.use('/uploads', express.static(__dirname + '/uploads')); 
+
+// Logging
+app.use(logger(env.morgan.mode, env.morgan.options))
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
@@ -45,7 +52,7 @@ app.set('views', './views');
 // Mongo store is used to store the cookie on our mongodb db
 app.use(session({
     name: 'codeial',
-    secret: 'blahblah',
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie:{
