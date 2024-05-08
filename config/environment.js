@@ -24,13 +24,13 @@ const development = {
         secure: false,
     
         auth: {
-            user: "niteshkatoch7@gmail.com",
-            pass: "cheo ygph cwnm kluo",
+            user: process.env.CODIEAL_SMTP_USER,
+            pass: process.env.CODIEAL_SMTP_PASSWORD,
         },
     },
     google_client_id: process.env.GOOGLE_CLIENT_ID,
-    google_client_secret: "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",
-    google_callback_url: "http://localhost:8000/users/auth/google/callback",
+    google_client_secret: process.env.GOOGLE_CLIENT_SECRET,
+    google_callback_url: process.env.GOOGLE_CALLBACK_URL,
     jwt_secret_key: 'codeial',
     morgan: {
         mode: 'dev',

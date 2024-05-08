@@ -30,3 +30,5 @@ yarn.lock
 
 # Ignore Thumbs.db files (Windows)
 Thumbs.db
+
+**/config/environment.js/
