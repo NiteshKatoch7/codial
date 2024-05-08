@@ -28,7 +28,7 @@ const development = {
             pass: "cheo ygph cwnm kluo",
         },
     },
-    google_client_id: "963044942365-uagolr72l1edfbl733e1c0hhr99bodr1.apps.googleusercontent.com",
+    google_client_id: process.env.GOOGLE_CLIENT_ID,
     google_client_secret: "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",
     google_callback_url: "http://localhost:8000/users/auth/google/callback",
     jwt_secret_key: 'codeial',
