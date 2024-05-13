@@ -1,9 +1,10 @@
 const User = require('../models/user');
+const env = require('../config/environment');
 
 module.exports.chatSockets = function(socketServer){
     let io = require('socket.io')(socketServer, {
         cors: {
-          origin: "http://localhost:8000",
+          origin: env.codieal_env_url,
           methods: ["GET", "POST"]
         }
       });

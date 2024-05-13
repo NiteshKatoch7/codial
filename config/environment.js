@@ -35,7 +35,9 @@ const development = {
     morgan: {
         mode: 'dev',
         options: {stream: accessLogStream}
-    }
+    },
+    codieal_env_url:'http://localhost:8000',
+    codieal_socket_url:'http://localhost:5000/',
 }
 
 const production = {
@@ -61,7 +63,9 @@ const production = {
     morgan: {
         mode: 'combined',
         options: {stream: accessLogStream}
-    }
+    },
+    codieal_env_url: process.env.CODIEAL_ENV_URL,
+    codieal_socket_url: process.env.CODIEAL_SOCKET_URL,
 }
 
 // console.log('env', eval(process.env.CODIEAL_ENVIRONMENT === undefined ? development: production));

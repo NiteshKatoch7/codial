@@ -10,4 +10,12 @@ module.exports = (app) => {
 
         return '/' + JSON.parse(fs.readFileSync(path.join(__dirname, '../public/assets/rev-manifest.json')))[filePath];
     }
+
+    app.locals.envUrl = function(){
+        return env.codieal_env_url;
+    }
+
+    app.locals.socketUrl = function(){
+        return env.codieal_socket_url;
+    }
 }
