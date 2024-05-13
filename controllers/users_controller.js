@@ -22,7 +22,7 @@ module.exports.profile = async function(req, res){
     //     res.redirect('/users/signin');
     // }
     try{
-        let profileUser =  User.findById(req.params.id);
+        let profileUser =  await User.findById(req.params.id);
         let adminUser = await User.findById(req.user._id);
         
         existingFriendship1 = Friendship.find({
@@ -35,11 +35,14 @@ module.exports.profile = async function(req, res){
             from_user: profileUser
         })
 
-        if(profileUser){
+        // console.log(existingFriendship1, existingFriendship2, existingFriendship1 || existingFriendship2);
 
+        if(profileUser){
+            console.log(profileUser)
             return res.render('user_profile', {
                 title: 'User Profile',
-                profile_user: user,
+                profile_user: profileUser,
+                friends: existingFriendship1 || existingFriendship2,
             })
         }
 

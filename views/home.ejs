@@ -80,12 +80,12 @@
     </div>
 </div>
 
-<script src="assetPath('js/home.js')"></script>
-<script src="assetPath('js/toggle_likes.js')"></script>
-<script src="assetPath('/js/friendship.js')"></script>
+<script src="<%= assetPath('js/home.js') %>"></script>
+<script src="<%= assetPath('js/toggle_likes.js') %>"></script>
+<script src="<%= assetPath('js/friendship.js') %>"></script>
 <!-- Chat Engine JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js" integrity="sha512-luMnTJZ7oEchNDZAtQhgjomP1eZefnl82ruTH/3Oj/Yu5qYtwL7+dVRccACS/Snp1lFXq188XFipHKYE75IaQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="assetPath('js/chat_engine.js')"></script>
+<script src="<%= assetPath('js/chat_engine.js') %>"></script>
 <% if(locals.user){ %>
     <script>
         // Intiate Chatting Engine
