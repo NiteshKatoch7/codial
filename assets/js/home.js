@@ -25,17 +25,18 @@
     //Fetch the post data in DOM
     let newPostDom = function(post, user){
         return $(`<li id="post-${post._id}">
-        <p>
-            <small>
-                <a class="delete-post-button" href="/posts/delete/${post._id}">Delete</a>
-            </small>
-            ${ post.content }
-            ${ user.name }
-            <br>
-            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
-                0 Likes
-            </a>
-        </p>
+        <div>
+            <div class="post-item-wrapper">
+                <p class="content">${ post.content }</p>
+                <a class="delete-post-button" href="/posts/delete/${post._id}"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>
+                <div class="post-details">
+                    <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+                        <span>0</span> Likes
+                    </a>
+                    <p class="user-name">Author: ${ user.name }</p>
+                </div>
+            </div>
+        </div>
         <div class="post-comments">
         
             <form id="new-comment-form" action="/comments/create" method="POST">

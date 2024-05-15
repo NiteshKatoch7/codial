@@ -1,0 +1,186 @@
+.single-wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    form{
+        height: auto;
+        margin: 20px 0;
+
+        input:-internal-autofill-selected{
+            background-color: $white !important;
+            border: 2px solid $primary-color;
+        }
+    }
+
+    h1{
+        font-size: 40px;
+        font-weight: 800;
+        color: $primary-color;
+        margin-bottom: 20px;
+    }
+}
+
+.action-btn{
+    padding: 10px 16px;
+    min-width: 350px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    color: $grey-text;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: $primary-color;
+    font-size: 16px;
+    font-weight: 500;
+    color: $white;
+    text-decoration: none;
+}
+
+.main-section{
+
+    .post-container{
+        position: relative;
+        background-color: $white;
+        padding: 10px 14px 60px;
+        border-radius: 8px;
+        max-width: 100%;
+        border: 0.5px solid $primary-color;
+
+        input[type=submit]{
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            min-width: 120px;
+        }
+
+        textarea{
+            width: 100%;
+            border: 0;
+            padding: 10px 14px;
+
+            &::-webkit-scrollbar{
+                width: 0;
+            }
+
+            &::-webkit-scrollbar-track{
+                width: 0;
+            }
+    
+            &:focus{
+                outline: 0;
+            }
+        }
+    }
+
+    .post-item{
+        margin: 30px 0;
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 10px 0;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            max-height: 300px;
+            overflow: auto;
+
+            li{
+                width: 90%;
+                margin: 20px 0;
+
+                .post-item-wrapper{
+                    position: relative;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    border-radius: 8px;
+
+                    .post-details{
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: space-between;
+                        gap: 0 10px;
+                        position: absolute;
+                        bottom: 8px;
+                        right: 8px;
+                        width: 95%;
+                        margin: auto;
+
+                        p{
+                            margin: 0;
+
+                            &.user-name{
+                                color: lightgray;
+                                text-transform: capitalize;
+                                font-size: 14px;
+                            }
+                        }
+
+                        .toggle-like-button{
+                            color: lightgray;
+                            text-transform: capitalize;
+                            font-size: 14px;
+                            text-decoration: none;
+
+                            span{
+                                color: $primary-color;
+                                font-weight: 800;
+                                font-size: 20px;
+                                line-height: normal;
+                            }
+                        }
+                    }
+
+                    .delete-post-button{
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        transform: translate3d(20%, -40%, 0);
+                        background-color: $white;
+                        width: 35px;
+                        height: 35px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                    }
+                }
+
+                .content{
+                    border: 0.5px solid $primary-color-bg;
+                    border-radius: 8px;
+                    min-height: 100px;
+                    text-align: left;
+                    padding: 20px 20px 40px;
+                    background-color: $white;
+                }
+
+                .post-comments{
+                    form{
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        margin: 0;
+                        max-width: 100%;
+
+                        input[type=text]{
+                            max-width: 400px;
+                            width: 100%;
+                        }
+
+                        input[type=submit]{
+                            min-width: auto;
+                            justify-self: flex-end;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

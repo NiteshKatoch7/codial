@@ -6,6 +6,7 @@
 @import './components/list.scss';
 @import './components/chat.scss';
 @import "./components/userProfile";
+@import "./components/page";
 
 body{
     margin: 0;
@@ -14,4 +15,8 @@ body{
     background-color: $primary-color-bg;
     overflow-x: hidden;
     background-color: $primary-color-bg;
+}
+
+.body-section{
+    height: calc(100vh - 120px);
 }

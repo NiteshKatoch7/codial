@@ -28,13 +28,13 @@
         <div class="col-sm-5">
             <section class="main-section" id="feed-posts">
                 <% if(locals.user){ %>
-                <form action="/posts/create" id="new-post-form" method="POST">
+                <form class="post-container w-100" action="/posts/create" id="new-post-form" method="POST">
                     <textarea name="content" id="new-post-content" cols="30" rows="3" placeholder="Type in..." required></textarea>
                     <input type="submit" value="Post">
                 </form>
                 <% } %>
             
-                <div id="post-list-container">
+                <div class="post-item" id="post-list-container">
                     <ul>
                         <% for(post of posts){ %>
             

@@ -23,7 +23,7 @@ class ToggleLike{
                 }
 
                 $(self).attr('data-likes', likesCount);
-                $(self).html(`${likesCount} Likes`)
+                $(self).html(`<span>${likesCount}</span> Likes`)
             })
             .fail(function(error){
                 console.log('Error in Completing the Request: ', error);

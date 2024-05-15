@@ -1,21 +1,22 @@
 <li id="post-<%= post._id %>">
-    <p>
-        <% if(locals.user && (locals.user.id == post.user.id)) { %>
-            <small>
-                <a class="delete-post-button" href="/posts/delete/<%= post._id %>">Delete</a>
-            </small>
-        <% } %>
-        <%= post.content %>
-        <%= post.user.name %>
-        <br>
-        <% if(locals.user ) { %>
-            <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%= post._id %>&type=Post">
-                <%= post.likes.length %> Likes
-            </a>
-        <% }else{ %>
-            <%= post.likes.length %> Likes
-        <% } %>
-    </p>
+    <div>
+        <div class="post-item-wrapper">
+            <p class="content"><%= post.content %></p>
+            <% if(locals.user && (locals.user.id == post.user.id)) { %>
+                <a class="delete-post-button" href="/posts/delete/<%= post._id %>"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>
+            <% } %>
+            <div class="post-details">
+                <% if(locals.user ) { %>
+                    <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%= post._id %>&type=Post">
+                        <span><%= post.likes.length %></span> Likes
+                    </a>
+                <% }else{ %>
+                    <span><%= post.likes.length %></span> Likes
+                <% } %>
+                <p class="user-name">Author: <%= post.user.name %></p>
+            </div>
+        </div>
+    </div>
     <div class="post-comments">
         <% if(locals.user){ %>
             <form id="new-comment-form" action="/comments/create" method="POST">
