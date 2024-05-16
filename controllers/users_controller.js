@@ -133,6 +133,7 @@ module.exports.signin = function(req,res){
         return res.redirect('/users/profile')
     }
     return res.render('signin', {
+        currentRoute: req.path,
         title: 'Signin'
     })
 }
@@ -142,6 +143,7 @@ module.exports.signup = function(req,res){
         return res.redirect('/users/profile')
     }
     return res.render('signup', {
+        currentRoute: req.path,
         title: 'Signup'
     })
 }

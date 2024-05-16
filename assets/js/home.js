@@ -99,24 +99,22 @@
 
     let createCommentDom = function(comment, user){
         return $(`<li id="comment_${ comment._id }">
-            <p>
-                ${ comment.content }
-                <br>
-                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${ comment._id }&type=Comment">
-                    0 Likes
-                </a>
-                <br>
-                <small>
+            <div class="comment">
+                <p class="author">
                     ${ user.name }
-                </small>
-
-                <small>
-                    <a class="delete-comment-button" href="/comments/delete/${ comment._id }">
-                        Delete
-                    </a>
-                </small>
-
-            </p>
+                </p>
+                <p>
+                    ${ comment.content }
+                </p>
+            </div>
+            <div class="comment-details">
+                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${ comment._id }&type=Comment">
+                    <span>0</span> Likes
+                </a>
+                <a class="delete-comment-button" href="/comments/delete/${ comment._id }">
+                    <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                </a>
+            </div>
         </li>`);
     }
 

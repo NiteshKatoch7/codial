@@ -5,13 +5,21 @@
             Coding Chronicles
         </a>
         <div class="d-flex align-items-center gap-2">
-            <span class="navbar-text p-0">
-                Logout
-            </span>
-            <form class="mb-0" action="/users/logout" method="POST">
-                <label class="logout-btn" for="logout-btn"><i class="fa-solid fa-right-from-bracket"></i></label>
-                <input class="d-none" type="submit" id="logout-btn" value="Logout">
-            </form>
+            <% if(locals.user){ %>
+                <span class="navbar-text p-0">
+                    Logout
+                </span>
+                <form class="mb-0" action="/users/logout" method="POST">
+                    <label class="logout-btn" for="logout-btn"><i class="fa-solid fa-right-from-bracket"></i></label>
+                    <input class="d-none" type="submit" id="logout-btn" value="Logout">
+                </form>
+            <% }else{ %>
+                <% if(currentRoute === '/signin'){ %>
+                    <a class="btn btn-primary" href="/users/signup">Sign Up</a>
+                <% }else{ %>
+                <a class="btn btn-primary" href="/users/signin">Sign In</a>
+                <% } %>
+            <% } %>
         </div>
     </div>
 </nav>

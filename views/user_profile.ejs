@@ -3,7 +3,11 @@
 <div class="user-profile">
     <div class="d-flex flex-column align-items-center justify-content-center h-100">
         <h3 class="col-12">
-            Welcome, <%= profile_user.name %>
+            <% if(locals.user.id == profile_user.id){ %>
+                Welcome, <%= profile_user.name %>
+            <% }else{ %>
+                <%= profile_user.name %>
+            <% } %>
         </h3>
         <div class="col-12">
             <div class="d-flex align-items-center justify-content-center mt-3">
@@ -38,9 +42,8 @@
                 </form>
             
             <% }else{ %>
-            
-                <p><%= profile_user.name %></p>
-                <p><%= profile_user.email %></p>
+                
+                <p class="mt-5"><%= profile_user.email %></p>
             
             <% } %>
         </div>

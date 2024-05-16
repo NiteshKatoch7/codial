@@ -1,5 +1,7 @@
 .right-section{
     height: calc(100vh - 200px);
+    position: sticky;
+    top: 75px;
 }
 
 .left-section{

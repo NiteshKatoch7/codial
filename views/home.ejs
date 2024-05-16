@@ -4,7 +4,7 @@
 
 <div class="container-wrapper mt-4">
     <div class="row">
-        <div class="col-sm-3">
+        <div id="friendList" class="friends-list">
             <div class="left-section">
                 <section class="users-corner list-section" id="users">
                     <div class="list-header">
@@ -24,8 +24,11 @@
                     </ul>
                 </section>
             </div>
+            <div id="friendListBtn" class="friends-btn">
+                <i class="fa fa-users text-white" aria-hidden="true"></i>
+            </div>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-8">
             <section class="main-section" id="feed-posts">
                 <% if(locals.user){ %>
                 <form class="post-container w-100" action="/posts/create" id="new-post-form" method="POST">
@@ -104,4 +107,15 @@
         let self = this;
         let toggleLike = new ToggleLike(self);
     })
+</script>
+<script>
+    $('#friendListBtn').on('click', function(e){
+        console.log($('#friendList').hasClass('active'));
+        activeFlag = $('#friendList').hasClass('active');
+        if(!activeFlag){
+            $('#friendList').addClass('active');
+        }else{
+            $('#friendList').removeClass('active');
+        }
+    });
 </script>

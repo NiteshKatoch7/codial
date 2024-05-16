@@ -15,3 +15,21 @@ $primary-color-lightest: #F5F7FF;
 .text-primary{
     color: $primary-color !important;
 }
+
+.btn-primary{
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+
+    &:hover{
+        background-color: $primary-color;
+    }
+
+    &:focus{
+        background-color: $primary-color;
+    }
+
+    &:active{
+        background-color: $primary-color;
+    }
+}
