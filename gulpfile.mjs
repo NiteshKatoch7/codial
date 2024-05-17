@@ -22,10 +22,14 @@ import rev from 'gulp-rev';
 gulp.task('css', function(done){
     console.log('minifying css...');
 
-    gulp.src('./assets/scss/**/*.scss')
+    return gulp.src('./assets/scss/**/*.scss')
     .pipe(sass())
     .pipe(cssnano())
     .pipe(gulp.dest('./assets/css/main'));
+});
+
+gulp.task('rev:css', function(done){
+    console.log('revisioning the css');
 
     return gulp.src('./assets/**/*.css')
     .pipe(rev())
@@ -35,12 +39,12 @@ gulp.task('css', function(done){
         merge: true
     }))
     .pipe(gulp.dest('./public/assets'));
-});
+})
 
 gulp.task('js', function(done){
     console.log('minifying js...');
 
-    gulp.src('./assets/js/**/*.js')
+    return gulp.src('./assets/js/**/*.js')
     .pipe(uglify())
     .pipe(rev())
     .pipe(gulp.dest('./public/assets/js'))
@@ -49,13 +53,12 @@ gulp.task('js', function(done){
         merge: true
     }))
     .pipe(gulp.dest('./public/assets'));
-    done();
 });
 
 gulp.task('images', function(done){
     console.log('compressing images...');
 
-    gulp.src('./assets/**/*.+(png||jpg||gif||svg||jpeg)')
+    return gulp.src('./assets/**/*.+(png||jpg||gif||svg||jpeg)')
     .pipe(imagemin())
     .pipe(rev())
     .pipe(gulp.dest('./public/assets'))
@@ -64,8 +67,6 @@ gulp.task('images', function(done){
         merge: true
     }))
     .pipe(gulp.dest('./public/assets'));
-
-    done();
 })
 
 gulp.task('clean:assets', function(done){
@@ -75,7 +76,12 @@ gulp.task('clean:assets', function(done){
     done();
 })
 
-gulp.task('build', gulp.series('clean:assets', 'css', 'js', 'images'), function(done){
+gulp.task('series', gulp.series('clean:assets', 'css', 'js', 'images'), function(done){
+    console.log('Building assets');
+    done();
+})
+
+gulp.task('build', gulp.series('series', 'rev:css'), function(done){
     console.log('Building assets');
     done();
 })
