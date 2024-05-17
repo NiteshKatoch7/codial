@@ -45,7 +45,7 @@ app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true, useNewUrlParser: true }));
 app.use(cookieParser());
 
 // set up the view engine

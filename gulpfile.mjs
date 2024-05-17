@@ -27,7 +27,7 @@ gulp.task('css', function(done){
     .pipe(cssnano())
     .pipe(gulp.dest('./assets/css/main'));
 
-    gulp.src('./assets/**/*.css')
+    return gulp.src('./assets/**/*.css')
     .pipe(rev())
     .pipe(gulp.dest('./public/assets'))
     .pipe(rev.manifest({
@@ -35,7 +35,6 @@ gulp.task('css', function(done){
         merge: true
     }))
     .pipe(gulp.dest('./public/assets'));
-    done();
 });
 
 gulp.task('js', function(done){

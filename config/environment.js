@@ -17,6 +17,7 @@ const development = {
     asset_path: '/assets',
     session_cookie_key: 'blahblah',
     db: 'codeial_development',
+    db_url: 'mongodb://localhost',
     smtp: {
         service: 'gmail',
         host: "smtp.gmail.com",
@@ -45,6 +46,7 @@ const production = {
     asset_path: process.env.CODIEAL_ASSET_PATH,
     session_cookie_key: process.env.CODIEAL_SESSION_COOKIE,
     db: process.env.CODIEAL_DB_NAME,
+    db_url: process.env.CODIEAL_DB_URL,
     smtp: {
         service: 'gmail',
         host: "smtp.gmail.com",
