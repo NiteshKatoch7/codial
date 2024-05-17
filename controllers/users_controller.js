@@ -128,10 +128,11 @@ module.exports.deleteProfileImage = async(req, res) => {
     }
 }
 
-module.exports.signin = function(req,res){
+module.exports.signin = function(req,res,app){
     if(req.isAuthenticated()){
         return res.redirect('/users/profile')
     }
+    res.locals.currentRoute = req.path;
     return res.render('signin', {
         currentRoute: req.path,
         title: 'Signin'

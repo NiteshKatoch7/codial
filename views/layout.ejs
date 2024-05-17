@@ -14,11 +14,7 @@
     </head>
 
     <body>
-        <% if(typeof currentRoute !== 'undefined'){ %>
-            <%- include('_header', { currentRoute: currentRoute }); %>
-        <% }else{ %>
-            <%- include('_header'); %>
-        <%} %>
+        <%- include('_header'); %>
 
         <div class="body-section">
             <%- body %>
