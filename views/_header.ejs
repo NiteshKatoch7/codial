@@ -14,7 +14,7 @@
                     <input class="d-none" type="submit" id="logout-btn" value="Logout">
                 </form>
             <% }else{ %>
-                <% if(currentRoute === '/signin'){ %>
+                <% if(currentRoute === '/signin' || typeof currentRoute === 'undefined'){ %>
                     <a class="btn btn-primary" href="/users/signup">Sign Up</a>
                 <% }else{ %>
                 <a class="btn btn-primary" href="/users/signin">Sign In</a>
