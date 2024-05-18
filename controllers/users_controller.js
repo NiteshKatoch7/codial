@@ -7,42 +7,25 @@ const resetPassword = require('../models/reset_password');
 const Friendship = require('../models/friendship');
 
 module.exports.profile = async function(req, res){
-    // if(req.cookies.user_id){
-    //     User.findById(req.cookies.user_id).then((user)=>{
-    //         if(user){
-    //             return res.render('user_profile', {
-    //                 title: 'User Profile',
-    //                 user:user
-    //             })
-    //         }else{
-    //             res.redirect('/users/signin');
-    //         }
-    //     })
-    // }else{
-    //     res.redirect('/users/signin');
-    // }
     try{
         let profileUser =  await User.findById(req.params.id);
         let adminUser = await User.findById(req.user._id);
+        let friendsFlag = true;
         
-        existingFriendship1 = Friendship.find({
-            to_user: profileUser,
-            from_user:  adminUser
+        existingFriendship1 = await Friendship.find({
+            from_user:  adminUser._id,
+            to_user: profileUser._id,
         })
         
-        existingFriendship2 = Friendship.find({
-            to_user: adminUser,
-            from_user: profileUser
-        })
-
-        // console.log(existingFriendship1, existingFriendship2, existingFriendship1 || existingFriendship2);
+        if(existingFriendship1.length === 0){
+            friendsFlag = false;
+        }
 
         if(profileUser){
-            console.log(profileUser)
             return res.render('user_profile', {
                 title: 'User Profile',
                 profile_user: profileUser,
-                friends: existingFriendship1 || existingFriendship2,
+                friends: friendsFlag,
             })
         }
 

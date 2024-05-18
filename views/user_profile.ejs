@@ -12,14 +12,14 @@
         <div class="col-12">
             <div class="d-flex align-items-center justify-content-center mt-3">
                 <div class="profile-pic">
-                    <img id="profile-picture" src="<%= profile_user.avatar ? profile_user.avatar : '/images/avatar.jpg' %>" alt="<%= user.name %>" width="100">
+                    <img id="profile-picture" src="<%= profile_user.avatar ? profile_user.avatar : '/images/avatar.jpg' %>" alt="<%= profile_user.name %> profile pic" width="100">
                     <% if(locals.user.id == profile_user.id){ %>
                         <button id="delete-profile-pic"><i class="fa-solid fa-trash"></i></button>
                     <% }else{ %>
                         <% if(friends){ %>
-                            <a class="add-friend" data-id="<%= profile_user.id %>" href="javascript:">Remove Friend</a>
+                            <a class="add-friend btn btn-primary" data-id="<%= profile_user.id %>" href="javascript:">Remove Friend</a>
                         <% }else{ %>
-                            <a class="add-friend" data-id="<%= profile_user.id %>" href="javascript:">Add Friend</a>
+                            <a class="add-friend btn btn-primary" data-id="<%= profile_user.id %>" href="javascript:">Add Friend</a>
                         <% } %>
                     <% } %>
                 </div>

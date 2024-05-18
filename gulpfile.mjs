@@ -81,7 +81,7 @@ gulp.task('series', gulp.series('clean:assets', 'css', 'js', 'images'), function
     done();
 })
 
-gulp.task('build', gulp.series('series', 'rev:css'), function(done){
+gulp.task('build', gulp.series('series', 'js', 'rev:css'), function(done){
     console.log('Building assets');
     done();
 })

@@ -12,9 +12,9 @@
                 success: function(data){
                     if(data.added){
                         self.innerHTML = 'Remove Friend';
-                        console.log(data.friendship.to_user);
+                        //console.log(data.friendship.to_user);
                         let newFriendDom = addFriendToListDom(data.friendship);
-                        console.log(newFriendDom);
+                        //console.log(newFriendDom);
                         $('#friends-container').prepend(newFriendDom);
                     }else{
                         self.innerHTML = 'Add Friend';

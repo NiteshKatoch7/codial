@@ -9,16 +9,8 @@ module.exports.addFriend = async(req,res) => {
             from_user: req.user._id,
             to_user: req.query.profile_user
         });
-        
-        // let existingFriendship2 = await Friendship.findOne({
-        //     from_user: req.query.profile_user,
-        //     to_user: req.user._id
-        // });
 
         if (existingFriendship1){
-            
-            // console.log('Friendship relationship already exists:', existingFriendship1 || existingFriendship2);
-            // console.log(existingFriendship1, existingFriendship2);
             let friendship = existingFriendship1 || existingFriendship2;
             let from_user = friendship.from_user;
             let to_user = friendship.to_user;
